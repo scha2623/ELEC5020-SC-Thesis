@@ -1,0 +1,769 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "doctor",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "patient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "treatment",
+						"type": "string"
+					}
+				],
+				"name": "MedicationPrescribed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "UserActivated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "UserDeactivated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "UserDeleted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "UserRegistered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "role",
+						"type": "uint256"
+					}
+				],
+				"name": "UserRoleChanged",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "UsersDetails",
+				"outputs": [
+					{
+						"internalType": "enum Admin.Titles",
+						"name": "title",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "firstname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lastname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "enum Admin.Roles",
+						"name": "role",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum Admin.CurStatus",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "exists",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "activateUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "role",
+						"type": "uint256"
+					}
+				],
+				"name": "changeRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "deactivateUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "deleteUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllPatientsForDoctor",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "enum Admin.Titles",
+								"name": "title",
+								"type": "uint8"
+							},
+							{
+								"internalType": "string",
+								"name": "firstname",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "lastname",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "location",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "ethAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "enum Admin.Roles",
+								"name": "role",
+								"type": "uint8"
+							},
+							{
+								"internalType": "enum Admin.CurStatus",
+								"name": "status",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bool",
+								"name": "exists",
+								"type": "bool"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "doctor",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "doctorName",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "doctorLocation",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "treatment",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "notes",
+										"type": "string"
+									}
+								],
+								"internalType": "struct Admin.Prescription[]",
+								"name": "prescriptions",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct Admin.UserInfo[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllUsers",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "enum Admin.Titles",
+								"name": "title",
+								"type": "uint8"
+							},
+							{
+								"internalType": "string",
+								"name": "firstname",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "lastname",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "location",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "ethAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "enum Admin.Roles",
+								"name": "role",
+								"type": "uint8"
+							},
+							{
+								"internalType": "enum Admin.CurStatus",
+								"name": "status",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bool",
+								"name": "exists",
+								"type": "bool"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "doctor",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "doctorName",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "doctorLocation",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "treatment",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "notes",
+										"type": "string"
+									}
+								],
+								"internalType": "struct Admin.Prescription[]",
+								"name": "prescriptions",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct Admin.UserInfo[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "patientAddress",
+						"type": "address"
+					}
+				],
+				"name": "getPatientPrescriptions",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "doctor",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorLocation",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "treatment",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							}
+						],
+						"internalType": "struct Admin.Prescription[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "doctorAddress",
+						"type": "address"
+					}
+				],
+				"name": "getPrescriptionsByDoctor",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "doctor",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorLocation",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "treatment",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							}
+						],
+						"internalType": "struct Admin.Prescription[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getUserByIndex",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "title",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "firstname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lastname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "role",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "status",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "getUserInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "title",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "firstname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lastname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "role",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "status",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getUsersCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "count",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "hospitalAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "patientAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "treatment",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "notes",
+						"type": "string"
+					}
+				],
+				"name": "prescribeMedication",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "title",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "firstname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lastname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "role",
+						"type": "uint256"
+					}
+				],
+				"name": "registerNewUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "viewMyDoctors",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "doctorAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorLocation",
+								"type": "string"
+							}
+						],
+						"internalType": "struct Admin.Doctor[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Admin.sol": "Admin"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Admin.sol": {
+			"keccak256": "0xd2119b5a90fa14a03ffb36d93fb613fdf8013f3e09cfbc6c5174bad8e6e9be22",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0e6accf421fad32b23ba06410f8339a80b1610c3b630ba60a6a5f6c424f044c5",
+				"dweb:/ipfs/QmNSLgaDx8pSyNvwRgpBzkQeh26cGiUvnkWtFUQigSkyXv"
+			]
+		}
+	},
+	"version": 1
+}

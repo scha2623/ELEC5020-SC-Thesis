@@ -1,0 +1,24 @@
+{
+  "name": "ethereum-backend",
+  "version": "1.0.0",
+  "description": "Backend for Ethereum Web Application",
+  "main": "server.js",
+  "scripts": {
+    "truffle-compile": "cd .\\src\\truffle && truffle compile",
+    "ganache": "ganache-cli",
+    "dev": "nodemon server.js",
+    "backend": "nodemon server.js",
+    "clean": "rimraf node_modules build logs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.3",
+    "ganache-cli": "^6.12.2",
+    "web3": "^4.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "rimraf": "^6.0.1"
+  }
+}
