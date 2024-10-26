@@ -7,7 +7,10 @@ const web3 = new Web3(provider);
 
 // Load contract ABI and address
 const contractJSON = JSON.parse(
-  fs.readFileSync("./src/contracts/artifacts/Admin.json", "utf8")
+  fs.readFileSync(
+    "./src/contracts/artifacts/PrescriptionManagementSystem.json",
+    "utf8"
+  )
 );
 const contractABI = contractJSON.abi;
 const contractAddress = process.env.CONTRACT_ADDRESS;
@@ -172,7 +175,9 @@ exports.getUsersCount = async () => {
 
 exports.getAllUsers = async () => {
   try {
-    const result = await contract.methods.getAllUsers().call();
+    const result = await contract.methods
+      .getAllUsers()
+      .call({ from: adminAddress });
     const processedResult = result.map((user) => ({
       title: parseInt(user.title, 10),
       firstname: user.firstname,

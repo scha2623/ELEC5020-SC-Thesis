@@ -1,0 +1,671 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "doctor",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "patient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "treatment",
+						"type": "string"
+					}
+				],
+				"name": "MedicationPrescribed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "UserActivated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "UserDeactivated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "UserDeleted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "UserRegistered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "role",
+						"type": "uint256"
+					}
+				],
+				"name": "UserRoleChanged",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "UsersDetails",
+				"outputs": [
+					{
+						"internalType": "enum PrescriptionManagementSystem.Titles",
+						"name": "title",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "firstname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lastname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "enum PrescriptionManagementSystem.Roles",
+						"name": "role",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum PrescriptionManagementSystem.CurStatus",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "exists",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "activateUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "role",
+						"type": "uint256"
+					}
+				],
+				"name": "changeRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "deactivateUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "deleteUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllPatientsForDoctor",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "enum PrescriptionManagementSystem.Titles",
+								"name": "title",
+								"type": "uint8"
+							},
+							{
+								"internalType": "string",
+								"name": "firstname",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "lastname",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "location",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "ethAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "enum PrescriptionManagementSystem.Roles",
+								"name": "role",
+								"type": "uint8"
+							},
+							{
+								"internalType": "enum PrescriptionManagementSystem.CurStatus",
+								"name": "status",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bool",
+								"name": "exists",
+								"type": "bool"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "doctor",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "doctorName",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "doctorLocation",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "treatment",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "notes",
+										"type": "string"
+									}
+								],
+								"internalType": "struct PrescriptionManagementSystem.Prescription[]",
+								"name": "prescriptions",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct PrescriptionManagementSystem.UserInfo[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllUsers",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "enum PrescriptionManagementSystem.Titles",
+								"name": "title",
+								"type": "uint8"
+							},
+							{
+								"internalType": "string",
+								"name": "firstname",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "lastname",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "location",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "ethAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "enum PrescriptionManagementSystem.Roles",
+								"name": "role",
+								"type": "uint8"
+							},
+							{
+								"internalType": "enum PrescriptionManagementSystem.CurStatus",
+								"name": "status",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bool",
+								"name": "exists",
+								"type": "bool"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "doctor",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "doctorName",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "doctorLocation",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "treatment",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "notes",
+										"type": "string"
+									}
+								],
+								"internalType": "struct PrescriptionManagementSystem.Prescription[]",
+								"name": "prescriptions",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct PrescriptionManagementSystem.UserInfo[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "patientAddress",
+						"type": "address"
+					}
+				],
+				"name": "getPatientPrescriptions",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "doctor",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorLocation",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "treatment",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							}
+						],
+						"internalType": "struct PrescriptionManagementSystem.Prescription[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "doctorAddress",
+						"type": "address"
+					}
+				],
+				"name": "getPrescriptionsByDoctor",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "doctor",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorLocation",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "treatment",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							}
+						],
+						"internalType": "struct PrescriptionManagementSystem.Prescription[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getUsersCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "count",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "hospitalAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "patientAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "treatment",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "notes",
+						"type": "string"
+					}
+				],
+				"name": "prescribeMedication",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "ethAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "title",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "firstname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lastname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "role",
+						"type": "uint256"
+					}
+				],
+				"name": "registerNewUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "viewMyDoctors",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "doctorAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "doctorLocation",
+								"type": "string"
+							}
+						],
+						"internalType": "struct PrescriptionManagementSystem.Doctor[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PrescriptionManagementSystem.sol": "PrescriptionManagementSystem"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"PrescriptionManagementSystem.sol": {
+			"keccak256": "0x9e2ec6edd413177653113844802011a7ed2e908d3b4d02765ac4e4d18dd67ea1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e289a4d92688116b204569747467d7a398e540a89ffb7fe7e2d18d0ad4f75b3e",
+				"dweb:/ipfs/QmR2F53x3hLr4LvNpiAUcF77UiTdtE32GwR4USDHuAW71P"
+			]
+		}
+	},
+	"version": 1
+}
