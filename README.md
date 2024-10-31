@@ -11,7 +11,7 @@ This project is a **smart-contract** based application that interfaces with a we
 ### Deploy the Smart Contract
 - First run Ganache and quickstart a new instance of the blockchain. Ensure it is running on `127.0.0.1:7545`, otherwise the `.env` file in the backend will need to be updated with the correct IP and port.
 
-- Open Remix IDE and navigate to the folder under `\backend\contracts` and load the `PrescriptionManagementSolution.sol` file into the IDE.
+- Open Remix IDE and navigate to the folder under `\backend\src\contracts` and load the `PrescriptionManagementSolution.sol` file into the IDE.
 
 - Compile the code, using Solidity version 0.8.0 Istanbul. You may need to enable the optimizations flag in Remix for the contract to build successfully.
 
